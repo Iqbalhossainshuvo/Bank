@@ -15,11 +15,8 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     // step-3:
     const withdrawTotalElement = document.getElementById('withdraw-total');
     const previousWithdrawTotalString = withdrawTotalElement.innerText;
-    let previousBalanceTotal = parseFloat(previousWithdrawTotalString);
+    const previousBalanceTotal = parseFloat(previousWithdrawTotalString);
     console.log(previousBalanceTotal);
-
-  
-    
 
     // step-4:
 
@@ -30,20 +27,18 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     // step-5:
     const balanceTotalElement = document.getElementById('total-balance');
     const previousBalanceTotalString = balanceTotalElement.innerText;
-    const previousBalanceTotal = parseFloat(previousBalanceTotalString);
-    console.log(previousBalanceTotal);
-   
-    
-
-    if(newWithdrawAmount > previousBalanceTotal){
-        alert('Balance is Low');
+    const allPreviousBalanceTotal = parseFloat(previousBalanceTotalString);
+    console.log(allPreviousBalanceTotal);
+    if(newWithdrawAmount > allPreviousBalanceTotal){
+        alert('balance is low');
         return;
     }
 
-    // step-6:
-    const newBalanceTotal = newWithdrawAmount - previousBalanceTotal;
-    balanceTotalElement.innerText = newBalanceTotal;
     withdrawField.value = '';
+    // step-6:
+    const newBalanceTotal = newWithdrawAmount - allPreviousBalanceTotal;
+    balanceTotalElement.innerText = newBalanceTotal;
+
 
     
 })
